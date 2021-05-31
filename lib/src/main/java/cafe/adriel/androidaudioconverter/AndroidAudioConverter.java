@@ -94,6 +94,10 @@ public class AndroidAudioConverter {
             return;
         }
         final File convertedFile = getConvertedFile(audioFile, format);
+        if (!convertedFile.exists()) {
+            convertedFile.mkdirs();
+        }
+
         final String[] cmd = new String[]{"-y", "-i", audioFile.getPath(), convertedFile.getPath()};
         try {
             FFmpeg.getInstance(context).execute(cmd, new FFmpegExecuteResponseHandler() {
