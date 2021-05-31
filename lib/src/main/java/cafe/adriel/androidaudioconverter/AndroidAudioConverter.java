@@ -95,7 +95,7 @@ public class AndroidAudioConverter {
         }
         final File convertedFile = getConvertedFile(audioFile, format);
         if (!convertedFile.exists()) {
-            convertedFile.mkdirs();
+            convertedFile.createNewFile();
         }
 
         final String[] cmd = new String[]{"-y", "-i", audioFile.getPath(), convertedFile.getPath()};
