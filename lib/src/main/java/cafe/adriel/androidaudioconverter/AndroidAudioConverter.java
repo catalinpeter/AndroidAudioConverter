@@ -80,7 +80,7 @@ public class AndroidAudioConverter {
         return this;
     }
 
-    public void convert() {
+    public void convert() throws IOException {
         if (!isLoaded()) {
             callback.onFailure(new Exception("FFmpeg not loaded"));
             return;
